@@ -1,1 +1,27 @@
-<p>movie works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 p-0">
+      <img src="{{ getImageUrlFrom(movie.poster_path, '500') }}" alt="{{ movie.title }}"
+        class="img-fluid">
+    </div>
+    <div class="col-md-6 p-2">
+      <h2>{{ movie.title }}</h2>
+      <h4>{{ movie.tagline }}</h4>
+      <hr>
+      <p><span class="badge badge-info">{{ movie.vote_average }}</span> |
+        <a class="badge badge-warning" href="{{movie.homepage}}" target="_blank">Website</a>
+      </p>
+      <p>{{ movie.overview }}</p>
+
+      <div class="mb-4">
+        <p class="text-uppercase"><span *ngFor="let gen of movie.genres">{{ gen.name }}, </span></p>
+        <img *ngFor="let company of movie.production_companies" src="{{ getImageUrlFrom(company.logo_path, '200') }}"
+                alt="{{ company.name }}" title="{{ company.name }}" class="col-md-2">
+      </div>
+
+      <hr>
+      <a (click)="backClicked()" class="btn btn-dark mt-2 text-white">< Back</a>
+    </div>
+
+  </div>
+</div>

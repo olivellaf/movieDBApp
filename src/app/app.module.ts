@@ -12,18 +12,14 @@ import { MoviesService } from './services/movies.service';
 
 // components
 import { AppComponent } from './app.component';
-import { DemoComponent } from './components/demo/demo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent,
     NavbarComponent,
     HomeComponent,
     SearchComponent,

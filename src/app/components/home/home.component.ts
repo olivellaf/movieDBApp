@@ -3,7 +3,7 @@ import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
 
@@ -13,23 +13,30 @@ export class HomeComponent implements OnInit {
 
   constructor(private _ms: MoviesService) {
 
-    this._ms.getMostPopularMovies()
+    this._ms.getMostPopularMoviesInTheaters()
       .subscribe(
         (data: any) => {
-          this.mostPopular = data.results
+          this.theaterMovies = data.results
         });
 
     this._ms.getTrending('movie', 'week')
       .subscribe(
         (data: any) => {
-          console.log(data.results);
+          this.mostPopular = data.results
         }
-      )
+      );
 
-    console.log(this.mostPopular);
+    this._ms.getPopularMoviesForKids()
+      .subscribe(
+        (data: any) => {
+          this.mostPopularKids = data.results
+      });
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  getImageUrlFrom( path: string, width?: string) {
+    return this._ms.getImageUrlBy(path, width);
   }
 
 }

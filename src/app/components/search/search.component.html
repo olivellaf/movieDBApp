@@ -1,1 +1,30 @@
-<p>search works!</p>
+<div class="container mt-4">
+  <div class="col mb-3">
+    <input (keyup)="search( term.value )" #term
+           type="text" class="form-control"
+           placeholder="Write something here...">
+  </div>
+
+  <hr>
+
+  <div class="alert alert-{{ alertType }}" *ngIf="!found">
+    It seems that we have not found anything related with your search: {{ term.value }}.<br/>
+    Please, try it again.
+  </div>
+
+  <div class="row" *ngIf="found">
+    <!-- results loop -->
+    <div class="card" class="col-md-4 mb-3 p-0" *ngFor="let result of resultsFound | slice:0:9; let i = index;">
+      <img src="{{ getImageUrlFrom(result.backdrop_path, '500') }}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ result.title }}</h5>
+        <p class="card-text"><small style="line-height:1.0;">{{ result.overview | slice:0:80 }}</small></p>
+        <a [routerLink]="['/movie', result.id]" class="btn btn-info">
+          <i class="fa fa-eye"></i>
+          More info...
+        </a>
+      </div>
+    </div>
+    <!-- .end results loop -->
+  </div>
+</div>
