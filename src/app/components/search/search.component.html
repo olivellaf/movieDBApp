@@ -13,18 +13,6 @@
   </div>
 
   <div class="row" *ngIf="found">
-    <!-- results loop -->
-    <div class="card" class="col-md-4 mb-3 p-0" *ngFor="let result of resultsFound | slice:0:9; let i = index;">
-      <img src="{{ getImageUrlFrom(result.backdrop_path, '500') }}" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{ result.title }}</h5>
-        <p class="card-text"><small style="line-height:1.0;">{{ result.overview | slice:0:80 }}</small></p>
-        <a [routerLink]="['/movie', result.id]" class="btn btn-info">
-          <i class="fa fa-eye"></i>
-          More info...
-        </a>
-      </div>
-    </div>
-    <!-- .end results loop -->
+    <app-row-cards [movies]="resultsFound" ></app-row-cards>
   </div>
 </div>

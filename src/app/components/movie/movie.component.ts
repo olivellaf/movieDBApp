@@ -28,10 +28,6 @@ export class MovieComponent implements OnInit {
       });
   }
 
-  getImageUrlFrom( path: string, width?: string) {
-    return this._ms.getImageUrlBy(path, width);
-  }
-
   backClicked() { this._location.back(); }
 
 }

@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { RowCardsComponent } from './components/row-cards/row-cards.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MovieComponent } from './components/movie/movie.component';
     NavbarComponent,
     HomeComponent,
     SearchComponent,
-    MovieComponent
+    MovieComponent,
+    RowCardsComponent
   ],
   imports: [
     BrowserModule,

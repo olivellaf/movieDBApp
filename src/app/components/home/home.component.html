@@ -4,62 +4,18 @@
     <h3>In theaters</h3>
     <hr>
 
-    <div class="row mt-4 mb-5">
-      <!-- most popular in theaters loop -->
-      <div class="card" class="col-md-4 mb-3 p-0" *ngFor="let movie of theaterMovies | slice:0:9; let i = index;">
-        <img src="{{ getImageUrlFrom(movie.backdrop_path, '500') }}" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text"><small style="line-height:1.0;">{{ movie.overview | slice:0:80 }}</small></p>
-          <a [routerLink]="['/movie', movie.id]" class="btn btn-info">
-            <i class="fa fa-eye"></i>
-            More info...
-          </a>
-        </div>
-      </div>
-      <!-- .end most popular in theaters loop -->
-    </div>
+    <app-row-cards [movies]="theaterMovies | slice:0:6" ></app-row-cards>
 
 
     <h3>Most popular movies</h3>
     <hr>
 
-    <div class="row mt-5 mb-5">
-      <!-- mostPopular movies loop -->
-      <div class="card" class="col-md-3 mb-3 p-0" *ngFor="let movie of mostPopular | slice:0:8; let i = index;">
-        <img src="{{ getImageUrlFrom(movie.backdrop_path, '500') }}" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text"><small style="line-height:1.0;">{{ movie.overview | slice:0:60 }}</small></p>
-          <a [routerLink]="['/movie', movie.id]" class="btn btn-info">
-            <i class="fa fa-eye"></i>
-            More info...
-          </a>
-        </div>
-      </div>
-      <!-- .end mostPopular movies loop -->
-    </div>
+    <app-row-cards [movies]="mostPopular | slice:0:6" ></app-row-cards>
 
 
     <h3>Most popular movies for <span class="text text-info">kids</span></h3>
     <hr>
 
-    <div class="row mt-5 mb-5 p-0">
-      <!-- mostPopular movies for kids loop -->
-      <div class="card" class="col-md-3 mb-3 p-0" *ngFor="let movie of mostPopularKids | slice:0:8; let i = index;">
-        <img src="{{ getImageUrlFrom(movie.backdrop_path, '500') }}" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text"><small style="line-height:1.0;">{{ movie.overview | slice:0:60 }}</small></p>
-          <a [routerLink]="['/movie', movie.id]" class="btn btn-info">
-            <i class="fa fa-eye"></i>
-            More info...
-          </a>
-        </div>
-      </div>
-      <!-- .end mostPopular movies for kids loop -->
-    </div>
-
-
+    <app-row-cards [movies]="mostPopularKids | slice:0:6" ></app-row-cards>
   </div>
 </div>

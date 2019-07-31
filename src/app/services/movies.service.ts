@@ -67,7 +67,7 @@ export class MoviesService {
 
     if(path == "" || path == null || path == undefined) {
       //console.log("Path null or undefined");
-      return "/assets/img/image_not_found_movieApp.png";
+      return "assets/img/image_not_found_movieApp.png";
     }
 
     if (width == "" || width == null || width == undefined) {

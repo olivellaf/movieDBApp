@@ -22,9 +22,9 @@ export class SearchComponent {
             if(data.total_results > 0) {
               this.resultsFound = data.results;
               this.found = true;
-              console.log(data);
+              //console.log(data);
             } else {
-              console.log("Nothing found");
+              //console.log("Nothing found");
               this.found = false;
               this.alertType = "danger";
             }
@@ -36,9 +36,4 @@ export class SearchComponent {
       this.found = false;
     }
   }
-
-  getImageUrlFrom( path: string, width?: string) {
-    return this._ms.getImageUrlBy(path, width);
-  }
-
 }
